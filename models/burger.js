@@ -6,12 +6,17 @@ var burger = {
 			callBack(result);
 		});
 	},
-	insertOne: function(callBack){
+	selectOne: function(condition, callBack){
+		orm.one('burgers', condition, function(result){
+			callBack(result);
+		});
+	},	
+	insertOne: function(cols, vals, callBack){
 		orm.create('burgers', cols, vals, function(result){
 			callBack(result);
 		});
 	},
-	updateOne: function(callBack){
+	updateOne: function(cols, vals, callBack){
 		orm.update('burgers', objColVals, condition, function(result){
 			callBack(result);
 		});

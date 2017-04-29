@@ -19,8 +19,24 @@ var orm = {
             if (err) {throw err;}
 
             callBack(result);
-            console.log(result);
         });
+
+    },    
+    one: function(tableName, condition, callBack) {
+        var queryString = 
+            'select *' 
+            + ' from ' + tableName 
+            + ' where ' + condition        
+            + ';'
+
+        console.log(queryString);
+
+        connection.query(queryString, function(err, result) {
+            if (err) {throw err;}
+
+            callBack(result);
+        });
+
     },
     create: function(tableName, cols, vals, callBack) {
         var query = 'insert into ' + tableName 
