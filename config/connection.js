@@ -2,11 +2,10 @@ var mysql = require('mysql');
 
 var connection = mysql.createConnection({
     port: 3306,
-    host: 'https://cryptic-basin-74989.herokuapp.com/',
+    host: 'localhost',
     user: 'root',
     password: 'root',
-    database: 'F98D0D808D648E32DF07A277F1697154',
-    connectionLimit: 5
+    database: 'burgers_db',
 });
 
 connection.connect(function(err) {

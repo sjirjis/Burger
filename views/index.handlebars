@@ -1,21 +1,41 @@
 <div class="jumbotron">
-  <img src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2015/07/ultimate-veggie-burger.jpg" />
-  <h1>Eat-Da-Burger!</h1>
-  <form class="form-horizontal" action="/index" method="post">
-    <div class="form-group">
-      <label for="textArea" class="col-sm-2 control-label"></label>
-      <div class="col-sm-8">
-        <p>Enter the name of a Burger you want to eat and click Submit!</p>
-        <input type="text" name='textArea' class="form-control" rows="1" id="textArea"></textarea><grammarly-btn><div data-reactroot="" class="_e725ae-textarea_btn _e725ae-anonymous _e725ae-not_focused"><div class="_e725ae-transform_wrap"><div title="Protected by Grammarly" class="_e725ae-status">&nbsp;</div></div></div></grammarly-btn>
+  <img src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2015/07/ultimate-veggie-burger.jpg" /><br/>
+  <h1>Eat-Da-Burger!</h1><br/>
+</div>
+
+<div class='row'>
+  <div class='toBeDevoured col-xs-offset-2 col-xs-5 col-lg-offset-4 col-lg-3''>  
+        {{#each burger}} {{#unless this.devoured}}
+          <ul Id={{this.id}} data-burgerName={{this.burger_name}}>{{this.id}}. {{this.burger_name}}
+          <button class="btn btn-danger btn-xs" Id=devourBtnId{{this.id}} data-burgerId={{this.id}}>Devour</button></ul>
+        {{/unless}} {{/each}} 
+  </div>
+
+  <div class='devoured col-xs-5'>  
+      {{#each burger}} {{#if devoured}}
+        <ul Id={{this.id}} data-burgerName={{this.burger_name}}>{{this.id}}. {{this.burger_name}}</ul>
+      {{/if}} {{/each}}
+  </div>
+</div><br />
+
+<div class='row'>
+  <div class="form-group">    
+    <label class="control-label" for="focusedInput">Enter the name of a Burger you want to eat and click Submit!</label>
+    <input class="form-control" id="focusedInput" type="text" placeholder="Ultimate Veggie Burger" /><br />
+    <button id='submitBtn' class="btn btn-primary">Submit</button>
+  </div>
+</div>
+
+<div class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Close</button>
+        <h4 class="modal-title">Oops! Looks like you didn't enter a burger name!</h4>
+      </div>
+      <div class="modal-body">
+        <p>Please enter a burger name then click submit</p>
       </div>
     </div>
-  <input type="submit" value="Submit" id='submitBtn' class="btn btn-primary">
-</form>
-
-{{burgerId}}. {{burgerName}}
-
-<script>
-  $('#submitBtn').on('click', function(){
-    
-  });
-</script>
+  </div>
+</div>

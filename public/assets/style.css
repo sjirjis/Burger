@@ -1,5 +1,25 @@
 img {
 	height: 250px;
 	width: 250px;
-	align-items: center;
+	display: block;
+	margin: auto;
+}
+
+h1, textarea {
+	display: block;
+	margin: auto;
+	text-align: center;
+}
+
+.control-label {
+	font-size: 20px;
+}
+
+.form-control {
+	width: 535px;
+}
+
+.form-group {
+  display: table;
+  margin: 0 auto;
 }

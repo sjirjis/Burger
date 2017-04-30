@@ -51,9 +51,9 @@ var orm = {
             callBack(result);
         });
     },
-    update: function(tableName, objColVals, condition, callBack) {
+    update: function(tableName, cols, vals, condition, callBack) {
         var query = 'update ' + tableName 
-        + ' set ' + objToSql(objColVals) 
+        + ' set ' + cols +  ' = ' + vals
         + ' where ' + condition + ';';
 
         console.log(query);
